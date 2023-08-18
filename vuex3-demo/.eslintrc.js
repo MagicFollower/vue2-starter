@@ -4,7 +4,9 @@ module.exports = {
     // 表示在当前代码环境中启用了 Node.js 相关的全局变量和规则。
     //   → 设置为 { node: true } 可以让 ESLint 知道代码被执行在 Node.js 的环境中，从而正确地处理 Node.js 相关的全局变量和规则。
     //   → 一个环境定义了一个一组预定义的全局变量。比如node环境的全局变量是global，但是浏览器环境的全局对象是window。
-    node: true
+    node: true,
+    browser: true,
+    es6: true,
   },
 
   // extends用于扩展和继承其他 ESLint 配置。

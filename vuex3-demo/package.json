@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lint1": "eslint --ext .js,.vue src",
+    "lint1-fix": "eslint --fix --ext .js,.vue src"
   },
   "dependencies": {
     "vue": "^2.6.14",
