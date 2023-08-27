@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p>当前时间：{{ currentTime }}</p>
     <my-hello :msg="'hello → '+randomNumber" @event-from-child="changeNumber">
       <span>---inner default slot---</span><br/>
 
@@ -25,15 +26,25 @@
 
 
 import HelloWorld from '@/components/HelloWorld.vue';
+import moment from 'moment';
 
 export default {
   name: 'App',
   components: {
     'my-hello': HelloWorld
   },
+  created() {
+    this.timer = setInterval(() => {
+      // Java        : yyyy-MM-dd HH:mm:ss.SSS
+      // JS(moment)  : YYYY-MM-DD HH:mm:ss.SSS
+      this.currentTime = moment(new Date()).format('YYYY/M/D H:m:s.SSS');
+    }, 1000);
+  },
   computed: {},
   data() {
     return {
+      'timer': null,
+      currentTime: new Date().toLocaleString(),
       randomNumber: 0
     };
   },
@@ -41,6 +52,10 @@ export default {
     changeNumber(num) {
       this.randomNumber = num ?? Math.floor(Math.random() * 100 + 1);
     }
+  },
+  beforeDestroy() {
+    // clearTimeout、clearInterval
+    clearInterval(this.timer);
   }
 };
 </script>
