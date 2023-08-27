@@ -1,6 +1,6 @@
 <template>
   <div>
-    <hello-world :msg="'hello → '+randomNumber" @event-from-child="changeNumber"/>
+    <my-hello :msg="'hello → '+randomNumber" @event-from-child="changeNumber"/>
     <br/>
     <button @click="changeNumber()">生成随机数</button>
   </div>
@@ -13,7 +13,9 @@ import HelloWorld from '@/components/HelloWorld.vue';
 
 export default {
   name: 'App',
-  components: {HelloWorld},
+  components: {
+    'my-hello': HelloWorld
+  },
   computed: {},
   data() {
     return {
